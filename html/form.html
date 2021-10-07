@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h1>Fill Up Your Details</h1>
+    <form action="beckend.js">
+        <label for="name">Name</label>
+        <div>
+            <input type="text" name="myName" id="name">
+        </div>
+        <br>
+        <label for="roll">Roll ID</label>
+        <div>
+            <input type="number" name="myId" id="roll">
+        </div>
+        <br>
+        <label for="job">Your Job</label>
+        <div>
+            <input type="text" name="myJob" id="job">
+
+        </div>
+        <br>
+        <label for="eligible"></label>
+        Are you eligible: <input type="checkbox" name="myEligibility" id="eligible" checked>
+        <br>
+        <br>
+        <label for="gender"><strong>Your Gender:</strong> </label>
+        <div>
+            Male: <input type="radio" name="mySex" id="gender">Female: <input type="radio" name="mySex"
+                id="gender">Others: <input type="radio" name="mySex" id="gender">
+        </div>
+       
+        <br>
+        <label for="car">Select Your Car</label>
+        <div>
+            <select name="Car" id="car">
+                <option value="swi">Swift</option>
+                <option value="ind">Indica</option>
+            </select>
+
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Submit Now">
+            <input type="reset" value="Reset">
+        </div>
+
+
+
+
+    </form>
+
+
+</body>
+
+</html>
