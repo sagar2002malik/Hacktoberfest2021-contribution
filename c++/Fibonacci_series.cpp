@@ -17,6 +17,7 @@ void Fibonacci_Numbers(int n)
 
 int main()
 {
+	cout <<"***enter the length of your series***:\n";
 	int a;
 	cin>>a;
 	Fibonacci_Numbers(a);
