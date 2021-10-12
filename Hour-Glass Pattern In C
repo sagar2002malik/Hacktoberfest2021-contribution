@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+void print(int space, int star) 
+{
+    while (space--) {
+        printf(" ");
+    }
+    while (star--) {
+        printf("*");
+    }
+    printf("\n");
+}
+
+void main()
+{
+    int star,space,i,j;
+    printf("Enter number:");
+    scanf("%d",&star);
+    j=star/2;
+    i=star;space=0;
+    while (space<j || star>0) {
+        print(space,star);
+        space=space+1;star=star-2;
+    }
+    space=j-1;star=3;
+    while(space>0 || star<=i) {
+        print(space,star);
+        space=space-1;star=star+2;
+    }
+}
+
+//contribution by
+//ankit sharma
