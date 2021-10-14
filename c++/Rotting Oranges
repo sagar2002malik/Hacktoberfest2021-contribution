@@ -1,0 +1,71 @@
+class Solution {
+public:
+    int orangesRotting(vector<vector<int>>& grid) {
+        queue<pair<pair<int,int>,int>>qu;
+        int n = grid.size();
+        int m = grid[0].size();
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(grid[i][j]==2)
+                {
+                    qu.push({{i,j},0});
+                }
+            }
+        }
+        int ans=0;
+        
+        while(!qu.empty()){
+            pair<int,int> pos=qu.front().first;
+            int time=qu.front().second;
+            qu.pop();
+            
+            if(pos.first!=0)
+            {
+                if(grid[pos.first-1][pos.second]==1)
+                {
+                    qu.push({{pos.first-1,pos.second},time+1});
+                    ans=time+1;
+                    grid[pos.first-1][pos.second]=2;
+                }
+            }
+            if(pos.first!=n-1)
+            {
+                if(grid[pos.first+1][pos.second]==1)
+                {
+                    qu.push({{pos.first+1,pos.second},time+1});
+                    ans=time+1;
+                    grid[pos.first+1][pos.second]=2;
+                }
+            }
+            if(pos.second!=0)
+            {
+                if(grid[pos.first][pos.second-1]==1)
+                {
+                    qu.push({{pos.first,pos.second-1},time+1});
+                    ans=time+1;
+                    grid[pos.first][pos.second-1]=2;
+                }
+            }
+            if(pos.second!=m-1)
+            {
+                if(grid[pos.first][pos.second+1]==1)
+                {
+                    qu.push({{pos.first,pos.second+1},time+1});
+                    ans=time+1;
+                    grid[pos.first][pos.second+1]=2;
+                }
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(grid[i][j]==1)
+                    ans=-1;
+            }
+        }
+        return ans;
+    }
+};
