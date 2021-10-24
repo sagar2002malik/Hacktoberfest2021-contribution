@@ -1,0 +1,53 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+Given the head of a linked list, rotate the list to the right by k places.
+
+Example 1:
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+
+SOLUTION:
+
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+     //edge case
+      if(head == NULL || head->next == NULL || k==0)
+        return head;
+      
+      int len = 1;
+      //calculate length
+      ListNode* curr = head;
+      while(curr->next != NULL)
+      {
+      curr = curr->next;
+        len ++;
+      }
+      //assign curr to new head
+      curr->next = head;
+      // if k is more than len, using modulo keep k less than
+      k = k%len;
+      //to find kth node
+      k = len - k;
+      
+      //we know curr was standing on last node
+      while(k--){
+        //start movung from head and go on 
+        //reach len-k th node
+        curr = curr->next;
+      }
+      //make new head
+      head = curr->next;     
+      //break connection
+      curr -> next = NULL;  
+      return head;
+    }
+};
